@@ -10,6 +10,7 @@ class WrongAnimal
     public:
         WrongAnimal();
         ~WrongAnimal();
+        std::string getType();
         void makeSound();
 };
 

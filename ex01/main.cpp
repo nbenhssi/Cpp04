@@ -1,27 +1,56 @@
 #include <iostream>
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-int main()
+int main() 
 {
+    std::cout << "===  Polymorphism ===" << std::endl;
 
-    Animal* a = new Dog();
-    Animal* b = new Cat();
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    a->makeSound();
-    b->makeSound();
+    std::cout << "\ngetType() tests:" << std::endl;
+    std::cout << j->getType()<< std::endl;
+    std::cout << i->getType()<< std::endl;
+    std::cout << meta->getType()<< std::endl;
 
-    delete a;
-    delete b;
+    std::cout << "\nmakeSound() tests- virtual functions work correctly:" << std::endl;
+    i->makeSound();
+    j->makeSound();
+    meta->makeSound();
 
+    std::cout << "\nDeleting objects:" << std::endl;
+    delete meta;
+    delete j;
+    delete i;
 
-    Dog dog1;
-    dog1.getBrain()->setIdea(0, "Bone");
+    std::cout << "\n=== Wrong Implementation tests ===" << std::endl;
 
-    Dog dog2 = dog1;
+    const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
 
-    std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
-    std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
+    std::cout << "\nWrongAnimal makeSound()&getType() tests - no virtual so no polymorphism:" << std::endl;
+    std::cout<< wrongMeta->getType() << std::endl;
+    std::cout<< wrongCat->getType() << std::endl;
+    wrongMeta->makeSound();
+    wrongCat->makeSound();
+
+    std::cout << "\nDeleting wrong objects:" << std::endl;
+    delete wrongMeta;
+    delete wrongCat;
+
+    std::cout << "\ncopy constructor tests:" << std::endl;
+    Dog originalDog;
+    Dog copiedDog(originalDog);
+
+    std::cout << "\nassignment operator tests:" << std::endl;
+    Cat cat1;
+    Cat cat2;
+    cat2 = cat1;
+    std::cout << std::endl;
 
     return 0;
 }
