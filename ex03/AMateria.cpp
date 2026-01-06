@@ -1,14 +1,20 @@
 #include "AMateria.hpp"
 
+AMateria::AMateria()
+{
+    std::cout << " materia Default constructor called" << std::endl;
+}
 
-AMateria::AMateria(){} //msgg
 
 AMateria::AMateria(AMateria &materia)
 {
     this->type = materia.type;
-        std::cout << " materia Copy constructor called" << std::endl;
+    std::cout << " materia Copy constructor called" << std::endl;
 }
-AMateria::~AMateria(){}//msgg
+AMateria::~AMateria()
+{
+    std::cout << " materia Destructor called" << std::endl;
+}
 
 AMateria::AMateria(std::string const &type)
 {
@@ -19,7 +25,8 @@ AMateria::AMateria(std::string const &type)
 AMateria& AMateria::operator=(const AMateria& AMateria)
 {
     (void)AMateria;
-    return *this;//ms
+    std::cout << " materia copy assignment operator called" << std::endl;
+    return *this;
 }
 std::string const & AMateria::getType() const
 {
@@ -28,6 +35,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-
     (void)target;
 }

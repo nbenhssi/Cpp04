@@ -15,7 +15,10 @@ Cure& Cure::operator=(const Cure& Cure)
     (void)Cure;
     return *this;
 }
-Cure::~Cure(){} 
+Cure::~Cure()
+{
+    std::cout << " Cure Destructor called" << std::endl;
+}
 
 Cure* Cure::clone()
 {
@@ -24,5 +27,5 @@ Cure* Cure::clone()
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

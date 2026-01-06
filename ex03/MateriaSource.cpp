@@ -35,7 +35,6 @@ MateriaSource::~MateriaSource()
     for (int i = 0; i < 4 ; i++)
     {
         delete(this->Inventory[i]);
-        this->Inventory[i] = NULL;   
     }
 }
 

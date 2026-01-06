@@ -15,7 +15,10 @@ Ice& Ice::operator=(const Ice& Ice)
     (void)Ice;
     return *this;
 }
-Ice::~Ice(){} 
+Ice::~Ice()
+{
+    std::cout << " Ice Destructor called" << std::endl;
+} 
 
 Ice* Ice::clone()
 {

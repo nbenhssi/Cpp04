@@ -15,7 +15,7 @@ Dog& Dog::operator=(const Dog& dog)
 {
     if (this != &dog)
     {
-        Animal::operator=(dog);  // Call base class assignment
+        Animal::operator=(dog);
     }
     std::cout << "Dog copy assignment operator called" << std::endl;
     return *this;
