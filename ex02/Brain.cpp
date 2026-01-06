@@ -36,6 +36,12 @@ void Brain::setIdea(int index, const std::string& idea)
         ideas[index] = idea;
 }
 
+void Brain::setIdea(const std::string& idea, int index)
+{
+    if (index >= 0 && index < 100)
+        ideas[index] = idea;
+}
+
 std::string Brain::getIdea(int index) const
 {
     if (index >= 0 && index < 100)
